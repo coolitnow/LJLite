@@ -3,9 +3,9 @@
 <ul>
     <% @entries.each do |entry| %>
     <li>
-        <a href="/entries/<%= entry.id%>"> 
-        <%= entry.title %>
-        </a>
+        <%= link_to entry.title, entry %>
     </li>
     <% end %>
 </ul>
+
+<%= link_to "New Entry", new_entry_path %>

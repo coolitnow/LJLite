@@ -11,14 +11,43 @@
 
     <div>
         <%= form.label :body %><br>
-        <%= form.text_area :body %>
+        <%= form.text_area :body%>
         <% @entry.errors.full_messages_for(:body).each do |message|%>
         <div><%= message %></div>
         <% end %>
+
+    </div>
+
+    <div id="word_count_container">
+        <h4 style="color:green; font-family:courier;"> Word Count: <span id="word_count">0</span> </h4>
     </div>
 
     <div>
         <%= form.submit %>
     </div>
+    
 
     <% end %>
+
+    <script type="text/javascript"> 
+
+        var count = document.getElementById('word_count');
+        var input = document.getElementById('entry_body');
+
+        input.addEventListener('keyup', wordCounter())
+
+        function wordCounter() {
+            console.log("Hello ouch");
+            var text = input.value;
+            var wordCount = 0;
+            for (var i = 0; i <= text.length; i++){
+
+                if (text[i] == ' '){
+        
+                    wordCount++;
+                }
+            }
+            count.innerText = wordCount;
+        }
+
+    </script>

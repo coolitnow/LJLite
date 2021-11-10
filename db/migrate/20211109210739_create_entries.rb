@@ -4,7 +4,7 @@ class CreateEntries < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :body
 
-      t.timestamps
+      t.timestamps, null: false
     end
   end
 end

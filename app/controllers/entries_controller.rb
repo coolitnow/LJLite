@@ -3,6 +3,10 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
+  def time
+    @t = Time.now
+  end
+
   def show
     @entry = Entry.find(params[:id])
   end
@@ -23,6 +27,6 @@ class EntriesController < ApplicationController
 
   private
     def entry_params
-      params.require(:entry).permit(:title, :body)
+      params.require(:entry).permit(:title, :body, :timestamps)
     end
 end
